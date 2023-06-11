@@ -1,0 +1,45 @@
+.navContainer{
+    background-color: var(--light-color);
+    position: fixed;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav{
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLink{
+    margin-bottom: 2.5rem;
+    position: relative;
+    width:100%;
+    padding:0.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navLink__active:before{
+    content: '';
+    width:0.3rem;
+    position: absolute;
+    left:0;
+    height:110%;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    background-color: var(--primary-color);
+}
+
+.navLogo {
+    position: absolute;
+    top:1rem;
+    left:50%;
+    transform: translateX(-50%);
+}
