@@ -1,10 +1,13 @@
 .navContainer{
     background-color: var(--light-color);
-    position: fixed;
+    position: sticky;
     height:100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    left:0;
+    top:0;
+    width: max-content;
 }
 
 .nav{

@@ -1,11 +1,51 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import styles from '@/styles/Home.module.css';
+import ShoppingList from '@/components/ShoppingList/ShoppingList';
+import search from '@/assets/search.svg';
+import plus from '@/assets/round-plus.svg'
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] })
+const itemsByCategory = [
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  },
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  },
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  },
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  },
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  },
+  {
+    categoryLabel: 'Fruits and Vegetables',
+    categoryName: 'fruits_and_vegetables',
+    items:[
+      'Avacado','Banana','Apple','Tomato', 'Onion', 'Potato','Watermelon']
+  }
+]
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -14,6 +54,40 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main className={styles.homePageContainer}>
+        <section className={styles.homePageMain}>
+          <div className={styles.homeHeader}>
+            <h1>
+              <span className={styles.siteName}>Shoppingify</span> allows you to take your
+              <br />shopping list wherever you go
+            </h1>
+            <div className={styles.searchContainer}>
+                <Image src={search} alt="An icon depicting a magnifying glass" className={styles.searchSvg}/>
+                <input type="text" placeholder='Search item' className={styles.searchInput}/>
+            </div>
+          </div>
+          <div className={styles.sections}>
+              <div className={styles.itemsByCategoryList}>
+                  {itemsByCategory.map((category:any) => (
+                    <div className={styles.categoryContainer}>
+                       <h2 className={styles.categoryName}>{category.categoryLabel}</h2>
+                       <div className={styles.itemsList}>
+                          {category.items.map((item:any) => (
+                              <p className={styles.item}>
+                                <span  className={styles.itemName}>{item}</span>
+                                <Image src={plus} alt="A plus icon"  className={styles.plusIcon}/>
+                              </p>
+                            ))}
+                       </div>
+                    </div>
+                  ))}
+              </div>
+          </div>
+        </section>
+        <section className={styles.sidePopups}>
+          <ShoppingList />
+        </section>
+      </main>
     </>
   )
 }
